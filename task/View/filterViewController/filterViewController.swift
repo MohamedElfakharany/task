@@ -9,6 +9,10 @@ import UIKit
 
 class filterViewController: UIViewController {
 
+    @IBOutlet weak var tagTextFiled: UITextField!
+    @IBOutlet weak var minTextFiled: UITextField!
+    
+    var delegate: getFilter?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,14 +20,13 @@ class filterViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func filterButton(_ sender: Any) {
+        delegate?.getFilterData(min: minTextFiled.text ?? "5", tag: tagTextFiled.text ?? "swift")
+        dismiss(animated: true, completion: nil)
     }
-    */
+    
+}
 
+protocol getFilter {
+    func getFilterData(min: String,tag: String)
 }

@@ -9,15 +9,18 @@ import UIKit
 
 class stakCell: UITableViewCell {
 
+    @IBOutlet weak var titleLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    func setItemLable (tile: Item) {
+        titleLabel.text = tile.title ?? ""
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+        // for git hup the view for the selected state
     }
     
 }
